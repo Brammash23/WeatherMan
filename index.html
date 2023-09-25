@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Mr Ramannan</title>
+</head>
+<body>
+	<div class="card">
+		<div class="search">
+	
+			<input type="searchbox"  name="search" placeholder="Enter your Location" spellcheck="false">
+		    <button >
+		    	<img src="search.png" height="10px" width="20px">
+		    </button>
+			
+		</div>
+		<div class="invisible">
+			<div class="temperature">
+			<img src="drizzle.png" height="90px" width="200px" >
+			<h2 class="temp">22°C</h2>
+			<br>
+			<h2 class="city">MADURAI</h2>
+		</div>
+		<div class="details">
+			<div class="humidity">
+				<img src="humidity.png" height="65px" width="70px" id="hum">
+				
+				<h3 class="humi">22%</h3>
+					<p>Humidity</p>
+				
+	
+				</div>
+
+				<div class="moisture">
+					<img src="fwind.png" height="65px" width="70px" id="moi">
+					<h3 class="wind">12.8</h3>
+					<p>Wind Speed</p>
+			</div>
+			
+
+
+		</div>
+
+
+		</div>
+		
+
+
+	</div>
+	<script type="text/javascript">
+			//
+			const searchbox = document.querySelector(".search input");
+        const searchbutton =document.querySelector(".search button");	
+		const apikey="bcf229729134e8d3f2aeaa66c3729398"
+		const apiurl="https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+		const weather = document.querySelector(".temperature img") ;
+
+
+		async function checkweather(city)
+		{
+			const response = await fetch(apiurl + city +'&appid=bcf229729134e8d3f2aeaa66c3729398');
+
+			var data = await response.json();
+			//
+			console.log(data);
+			document.querySelector(".city").innerHTML = data.name;
+			document.querySelector(".temp").innerHTML = data.main.temp;
+            document.querySelector(".humi").innerHTML = data.main.humidity + "%";
+             document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
+
+//
+             if (data.weather[0].main == "Clouds")
+             {
+              	weather.src = "clouds.png" ;
+
+             }
+
+
+             else if (data.weather[0].main == "Clear")
+             {
+              	weather.src = "clear.png" ;
+
+             }
+
+             else if (data.weather[0].main == "Rain")
+             {
+              	weather.src = "rain.png" ;
+
+             }
+
+              else if (data.weather[0].main == "Rain")
+             {
+              	weather.src = "rain.png" ;
+
+             }
+              else if (data.weather[0].main == "Drizzle")
+             {
+              	weather.src = "drizzle.png" ;
+
+             }
+              else if (data.weather[0].main == "Mist")
+             {
+              	weather.src = "mist.png" ;
+
+             }
+          document.querySelector(".invisible").style.display = "block";
+
+		}
+		searchbutton.addEventListener("click", ()=>{
+			checkweather(searchbox.value);
+		}
+		)
+
+
+
+
+	</script>
+
+</body>
+</html>
