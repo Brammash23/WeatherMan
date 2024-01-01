@@ -1,20 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Dhurjati&family=Teko&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dhurjati&family=Sacramento&family=Teko&display=swap');
+
 *
 {
 	margin: 0;
 	padding: 0;
-	font-family: sans-serif;
+	font-family: 'Dhurjati', sans-serif;
+font-family: 'Teko', sans-serif;
 	box-sizing: border-box;
 }
 body
 {
-	background-color: skyblue;
-	background-image: url(bgcld2.gif);
-	background-size: cover;
+	background-color:black ;
+	background-size: contain;
 }
 }
 .search
 {
-	width: 100%;
+	width: 60%;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -31,8 +34,10 @@ body
 	text-align: center;
 	border-radius: 56px;
 	padding: 40px ;
-	background-color:#97B8C5;
-	color: black;
+	background-color:black;
+	color: ghostwhite;
+	border: 2px solid;
+	border-color:whitesmoke ;
 
 }
 .search input
@@ -52,7 +57,7 @@ body
 {
 	border-radius: 10px;
 	margin: 10px auto;
-	padding: 3px 9px;
+	padding: 20px;
 	cursor: pointer;
 } 
 #hum
@@ -97,4 +102,52 @@ h3,h2,p
 	color: black;
 }
 
+@media screen and (max-width:600px)
+{
+	.card
+{
+	
+	width: 100%;
+	max-height: 900px;
+	max-width: 600px;
+	width: 300px;
+	height: 70%;
+	margin: 100px auto 0;
+	text-align: center;
+	border-radius: 10%;
+	border-width:1px ;
+	padding: 4px ;
+	background-color:black;
+	color: ghostwhite;
+	border: 2px solid;
+	border-color:whitesmoke ;
 
+}
+.search input
+{
+	border: 0;
+	outline: 0;
+	background-color:#FFFFFF;
+	color: black;
+	padding: 25px 25px;
+	padding-left: 40px;
+	border-radius: 10px;
+	height: 25px;
+	flex: 1;
+	margin-right: 16px;
+	font-size: 15px;
+}
+.search button
+{
+	border-radius: 10px;
+	padding: 3px;
+	cursor: pointer;
+} 
+h3,h2,p
+{
+	margin-top: -10px;
+	font-size: 35px;
+	font-weight:4 ;
+}
+
+}
